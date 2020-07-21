@@ -1,13 +1,16 @@
 require "pry"
 class Movie
 
-    attr_accessor :name, :actors
+    attr_accessor :genre
+    attr_reader :name
 
     @@all = []
 
-    def initialize (name)
+    def initialize (name, genre)
         @name = name
+        @genre = genre
         @@all << self
+
     end
 
     def self.all
@@ -18,13 +21,6 @@ class Movie
         self.all.find do |movie|
         movie.name == movie_name
     end
-    end
-
-    def self.find_all_movie_by_actor(actor)       
-        array = self.all.select do |movie|
-            movie.actors.include? (actor)
-        end
-        array
     end
 
 
@@ -39,4 +35,8 @@ class Movie
     def add_actor(actor)
         MovieActor.new(self,actor)
     end
+
+    def change_genre(genre)
+        self.genre = genre
+    end    
 end

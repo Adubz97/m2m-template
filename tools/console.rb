@@ -2,14 +2,14 @@ require_relative '../config/environment.rb'
 
 # create test data/variables here
 
-avengers= Movie.new("Avengers")
-snowpiercer=Movie.new("Snowpiercer")
+avengers= Movie.new("Avengers", "action")
+snowpiercer=Movie.new("Snowpiercer", "action")
 #movie.name
 #puts Movie.find_all_movies_by_name("Avengers")
 rdj= Actor.new("RDJ")
 chris_evans=Actor.new("Chris Evans")
 MovieActor.new(avengers, rdj)
-transformers=Movie.new("Transformers")
+transformers=Movie.new("Transformers", "drama")
 megan_fox=Actor.new("Megan Fox")
 shia=Actor.new("Shia")
 MovieActor.new(transformers, megan_fox)
@@ -24,9 +24,7 @@ avengers.add_actor(chris_evans)
 
 chris_evans.add_movie(snowpiercer)
 #print chris_evans.movies
-
-print Actor.find_all_actors_by_name("RDJ")
-
-print Actor.find_all_actors_by_movie(avengers)   
+#print rdj.look_up_movies_of_actor_by_genre("action")
+print chris_evans.movie_genres
 
 binding.pry
