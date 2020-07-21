@@ -10,7 +10,6 @@ class Movie
         @name = name
         @genre = genre
         @@all << self
-
     end
 
     def self.all
@@ -19,10 +18,9 @@ class Movie
 
     def self.find_all_movies_by_name(movie_name)
         self.all.find do |movie|
-        movie.name == movie_name
+             movie.name == movie_name
+        end
     end
-    end
-
 
     def actors
         MovieActor.all.find_all do |ma|
